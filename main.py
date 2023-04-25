@@ -18,7 +18,7 @@ def function(litera_curent,dictionar,i):
                 function(tranzitie[1],dictionar,i+1)
 
 def citire(file):
-    #Reads a regular grammar from the given file and returns it as a dictionary
+    
     dictionar = {}
     with open(file, "r") as f:
         for line in f:
@@ -26,8 +26,6 @@ def citire(file):
             stari = prop[0].strip()
             dictionar[stari] = []
             tranzitii = prop[1].strip().split("|")
-
-            #Add the rs to the grammar dictionary under the ls key
 
             for tranzitie in tranzitii:
                 dictionar[stari].extend(tranzitie.split())
@@ -40,9 +38,7 @@ cuvant=input("Introduceti cuvantul pentru verificat: ")
 
 
 if not cuvant or cuvant=='lambda':
-    # If the word is empty, check if the symbol can produce the empty string ('lambda' in our case).
-    # A symbol can produce the empty string if it is in the grammar and has a production rule that generates the empty string.
-    # return 'lambda' in grammar[symbol]
+ 
     if 'lambda' in dictionar['S']:
         print("cuvant acceptat")
     else:
